@@ -17,7 +17,28 @@ class ImageComponent extends Component {
             },
 
             function( error, response, body ){
-                console.log(body);
+                let pictureLayout = JSON.parse(body).data.map(function(picture){
+                    let thumbStyles;
+                    if( picture.width > picture.height ){
+                        thumbStyles = "\
+                        <div class='thumbnail'>\
+                            <a href=#"+picture.id+">\
+                                <img src=" + picture.link + " />\
+                            </a>\
+                        </div>\
+                        ";
+                    }else{
+                        thumbStyles = "\
+                        <div class='thumbnail'>\
+                            <a href=#"+picture.id+">\
+                                <img class='portrait' src=" + picture.link + " />\
+                            </a>\
+                        </div>\
+                        ";
+                    }
+                    return thumbStyles;
+                })
+                document.getElementById('image-list').innerHTML = pictureLayout.join('');
             }
         );
     }
