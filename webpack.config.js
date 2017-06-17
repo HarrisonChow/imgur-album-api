@@ -35,6 +35,12 @@ var config = {
       }
     ],
   },
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty',
+    fs: "empty"
+  }
 };
 
 module.exports = config;
