@@ -26,6 +26,11 @@ class ImageComponent extends Component {
                                 <img src=" + picture.link + " />\
                             </a>\
                         </div>\
+                        <a href='#_'>\
+                        <div class='lightbox' id="+picture.id+">\
+                        <img src=" + picture.link + " />\
+                        </div>\
+                        </a>\
                         ";
                     }else{
                         thumbStyles = "\
@@ -34,6 +39,11 @@ class ImageComponent extends Component {
                                 <img class='portrait' src=" + picture.link + " />\
                             </a>\
                         </div>\
+                        <a href='#_'>\
+                        <div class='lightbox' id="+picture.id+">\
+                        <img src=" + picture.link + " />\
+                        </div>\
+                        </a>\
                         ";
                     }
                     return thumbStyles;
