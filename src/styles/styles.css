@@ -1,3 +1,7 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
 .thumbnail {
   float: left;
   width: 200px;
@@ -47,4 +51,15 @@
 .lightbox:target {
 	outline: none;
 	display: block;
+}
+
+.Upload-Button {
+  width: 100%;
+  padding-left: 70vw;
+  padding-right: 25px;
+  height: 80px;
+  padding-top: 30px;
+
+  background-color: #3E3E3E;
+  color: #FFFFFF;
 }

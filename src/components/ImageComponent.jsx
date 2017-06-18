@@ -60,6 +60,14 @@ class ImageComponent extends Component {
     render() {
         return (
             <div>
+                <div className = "Upload-Button">
+                    <label>Upload image to Imgur</label>
+                    <form encType="multipart/form-data">
+                        <input type="file" />
+                        <input type="submit" value="Upload" />
+                    </form>
+                </div>
+
                 <span>
                     Image list from Imgur
                 </span>
