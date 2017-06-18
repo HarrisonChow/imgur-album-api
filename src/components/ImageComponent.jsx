@@ -5,6 +5,21 @@ import request from 'request';
 class ImageComponent extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            data_uri: null,
+        }
+    }
+
+    chooseFile(event) {
+        const reader = new FileReader();
+        const file = event.target.files[0];
+
+        reader.onload = (upload) => {
+            this.setState({
+                data_uri: upload.target.result,
+            });
+        };
+        reader.readAsDataURL(file);
     }
 
     GetImagesFromImgur() {
@@ -63,7 +78,7 @@ class ImageComponent extends Component {
                 <div className = "Upload-Button">
                     <label>Upload image to Imgur</label>
                     <form encType="multipart/form-data">
-                        <input type="file" />
+                        <input type="file" onChange={this.chooseFile.bind(this)} />
                         <input type="submit" value="Upload" />
                     </form>
                 </div>
