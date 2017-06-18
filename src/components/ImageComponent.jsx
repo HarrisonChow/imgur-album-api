@@ -22,6 +22,13 @@ class ImageComponent extends Component {
         reader.readAsDataURL(file);
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+        const img = this.state.data_uri;
+        this.uploadImageToImgur(img);
+    }
+
+
     GetImagesFromImgur() {
 
         request(
@@ -68,6 +75,12 @@ class ImageComponent extends Component {
         );
     }
 
+    uploadImageToImgur(imageData){
+        console.log(imageData);
+        console.log("done");
+
+    }
+
     componentDidMount(){
         this.GetImagesFromImgur();
     }
@@ -77,7 +90,7 @@ class ImageComponent extends Component {
             <div>
                 <div className = "Upload-Button">
                     <label>Upload image to Imgur</label>
-                    <form encType="multipart/form-data">
+                    <form onSubmit={this.handleSubmit.bind(this)} encType="multipart/form-data">
                         <input type="file" onChange={this.chooseFile.bind(this)} />
                         <input type="submit" value="Upload" />
                     </form>
