@@ -28,7 +28,6 @@ class ImageComponent extends Component {
         this.uploadImageToImgur(img);
     }
 
-
     GetImagesFromImgur() {
 
         request(
@@ -76,9 +75,29 @@ class ImageComponent extends Component {
     }
 
     uploadImageToImgur(imageData){
-        console.log(imageData);
-        console.log("done");
-
+        let newImageData = imageData.replace(/data:image\/.+;base64/i, '');
+        let options = {
+            url: 'https://api.imgur.com/3/upload',
+            headers: { 'Authorization': 'Client-ID 908c85ce012a0e1' },
+            method: 'POST',
+            form: { image: newImageData }
+        }
+        request(options, function(err,httpResponse,body){
+            if (err) {
+                sweetAlert("Oops...", "Upload not successful!", "error");
+            } else {
+                swal({
+                title: "Upload successful!",
+                text: "The image's link in imgur is \
+                    <span style='color:#F8BB86'>\
+                        <a href = "+JSON.parse(body).data.link+">\
+                            "+JSON.parse(body).data.link+"\
+                        </a>\
+                    <span>.",
+                html: true
+                });
+            }
+        });
     }
 
     componentDidMount(){
