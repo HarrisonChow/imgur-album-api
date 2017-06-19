@@ -6,7 +6,7 @@ class ImageComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data_uri: null,
+            dataUri: null,
         }
     }
 
@@ -16,7 +16,7 @@ class ImageComponent extends Component {
 
         reader.onload = (upload) => {
             this.setState({
-                data_uri: upload.target.result,
+                dataUri: upload.target.result,
             });
         };
         reader.readAsDataURL(file);
@@ -24,7 +24,7 @@ class ImageComponent extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const img = this.state.data_uri;
+        const img = this.state.dataUri;
         this.uploadImageToImgur(img);
     }
 
@@ -48,9 +48,9 @@ class ImageComponent extends Component {
                             </a>\
                         </div>\
                         <a href='#_'>\
-                        <div class='lightbox' id="+picture.id+">\
-                        <img src=" + picture.link + " />\
-                        </div>\
+                            <div class='lightbox' id="+picture.id+">\
+                                <img src=" + picture.link + " />\
+                            </div>\
                         </a>\
                         ";
                     }else{
@@ -61,9 +61,9 @@ class ImageComponent extends Component {
                             </a>\
                         </div>\
                         <a href='#_'>\
-                        <div class='lightbox' id="+picture.id+">\
-                        <img src=" + picture.link + " />\
-                        </div>\
+                            <div class='lightbox' id="+picture.id+">\
+                                <img src=" + picture.link + " />\
+                            </div>\
                         </a>\
                         ";
                     }
@@ -87,14 +87,14 @@ class ImageComponent extends Component {
                 sweetAlert("Oops...", "Upload not successful!", "error");
             } else {
                 swal({
-                title: "Upload successful!",
-                text: "The image's link in imgur is \
-                    <span style='color:#F8BB86'>\
-                        <a href = "+JSON.parse(body).data.link+">\
-                            "+JSON.parse(body).data.link+"\
-                        </a>\
-                    <span>.",
-                html: true
+                    title: "Upload successful!",
+                    text: "The image's link in imgur is \
+                        <span style='color:#F8BB86'>\
+                            <a href = "+JSON.parse(body).data.link+">\
+                                "+JSON.parse(body).data.link+"\
+                            </a>\
+                        <span>.",
+                    html: true
                 });
             }
         });
@@ -108,13 +108,13 @@ class ImageComponent extends Component {
         return (
             <div>
                 <div className = "upload">
-                    <form onSubmit={this.handleSubmit.bind(this)} encType="multipart/form-data">
+                    <form onSubmit={ this.handleSubmit.bind(this) } encType="multipart/form-data">
                         <div className = "upload-button">
                             <div className = "upload-title">
                                 <label>Upload image to Imgur</label>
                             </div>
                             <div>
-                                <input type="file" onChange={this.chooseFile.bind(this)} />
+                                <input type="file" onChange={ this.chooseFile.bind(this) } />
                                 <input type="submit" value="Upload" />
                             </div>
                         </div>
