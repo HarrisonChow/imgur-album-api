@@ -37147,7 +37147,7 @@ var ImageComponent = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ImageComponent.__proto__ || Object.getPrototypeOf(ImageComponent)).call(this, props));
 
         _this.state = {
-            data_uri: null
+            dataUri: null
         };
         return _this;
     }
@@ -37162,7 +37162,7 @@ var ImageComponent = function (_Component) {
 
             reader.onload = function (upload) {
                 _this2.setState({
-                    data_uri: upload.target.result
+                    dataUri: upload.target.result
                 });
             };
             reader.readAsDataURL(file);
@@ -37171,7 +37171,7 @@ var ImageComponent = function (_Component) {
         key: 'handleSubmit',
         value: function handleSubmit(event) {
             event.preventDefault();
-            var img = this.state.data_uri;
+            var img = this.state.dataUri;
             this.uploadImageToImgur(img);
         }
     }, {
@@ -37193,9 +37193,9 @@ var ImageComponent = function (_Component) {
                             </a>\
                         </div>\
                         <a href='#_'>\
-                        <div class='lightbox' id=" + picture.id + ">\
-                        <img src=" + picture.link + " />\
-                        </div>\
+                            <div class='lightbox' id=" + picture.id + ">\
+                                <img src=" + picture.link + " />\
+                            </div>\
                         </a>\
                         ";
                     } else {
@@ -37206,9 +37206,9 @@ var ImageComponent = function (_Component) {
                             </a>\
                         </div>\
                         <a href='#_'>\
-                        <div class='lightbox' id=" + picture.id + ">\
-                        <img src=" + picture.link + " />\
-                        </div>\
+                            <div class='lightbox' id=" + picture.id + ">\
+                                <img src=" + picture.link + " />\
+                            </div>\
                         </a>\
                         ";
                     }
@@ -37234,11 +37234,11 @@ var ImageComponent = function (_Component) {
                     swal({
                         title: "Upload successful!",
                         text: "The image's link in imgur is \
-                    <span style='color:#F8BB86'>\
-                        <a href = " + JSON.parse(body).data.link + ">\
-                            " + JSON.parse(body).data.link + "\
-                        </a>\
-                    <span>.",
+                        <span style='color:#F8BB86'>\
+                            <a href = " + JSON.parse(body).data.link + ">\
+                                " + JSON.parse(body).data.link + "\
+                            </a>\
+                        <span>.",
                         html: true
                     });
                 }
@@ -37259,24 +37259,32 @@ var ImageComponent = function (_Component) {
                     'div',
                     { className: 'upload' },
                     _react2.default.createElement(
-                        'label',
-                        null,
-                        'Upload image to Imgur'
-                    ),
-                    _react2.default.createElement(
                         'form',
                         { onSubmit: this.handleSubmit.bind(this), encType: 'multipart/form-data' },
                         _react2.default.createElement(
                             'div',
                             { className: 'upload-button' },
-                            _react2.default.createElement('input', { type: 'file', onChange: this.chooseFile.bind(this) }),
-                            _react2.default.createElement('input', { type: 'submit', value: 'Upload' })
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'upload-title' },
+                                _react2.default.createElement(
+                                    'label',
+                                    null,
+                                    'Upload image to Imgur'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                null,
+                                _react2.default.createElement('input', { type: 'file', onChange: this.chooseFile.bind(this) }),
+                                _react2.default.createElement('input', { type: 'submit', value: 'Upload' })
+                            )
                         )
                     )
                 ),
                 _react2.default.createElement(
-                    'span',
-                    null,
+                    'div',
+                    { className: 'subtitle' },
                     'Image list from Imgur'
                 ),
                 _react2.default.createElement('div', { id: 'image-list' })
@@ -41723,7 +41731,7 @@ exports = module.exports = __webpack_require__(146)(undefined);
 
 
 // module
-exports.push([module.i, "html, body {\n    margin: 0;\n    padding: 0;\n}\n.image-list {\n  width: 100%;\n}\n.thumbnail {\n  float: left;\n  width: 14vw;\n  height: 14vw;\n  margin: 1em;\n  position: relative;\n  overflow: hidden;\n  border: 1px solid grey;\n}\n.thumbnail img {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  height: 100%;\n  width: auto;\n  -webkit-transform: translate(-50%,-50%);\n      -ms-transform: translate(-50%,-50%);\n          transform: translate(-50%,-50%);\n}\n.thumbnail img.portrait {\n  width: 100%;\n  height: auto;\n}\n\n.thumbnailss {\n  max-width: 40%;\n}\n\n.lightbox {\n\tdisplay: none;\n\tposition: fixed;\n\tz-index: 999;\n\twidth: 100%;\n\theight: 100%;\n\ttext-align: center;\n\ttop: 0;\n\tleft: 0;\n\tbackground: rgba(0,0,0,0.8);\n}\n\n.lightbox img {\n\tmax-width: 90%;\n\tmax-height: 80%;\n\tmargin-top: 2%;\n}\n\n.lightbox:target {\n\toutline: none;\n\tdisplay: block;\n}\n\n.upload {\n  width: 100%;\n  padding-left: 60vw;\n  padding-right: 25px;\n  height: 80px;\n  padding-top: 30px;\n  background-color: #3E3E3E;\n  color: #FFFFFF;\n}\n.upload-button {\n  width: 200px;\n}\n", ""]);
+exports.push([module.i, "html, body {\n    margin: 0;\n    padding: 0;\n}\n.image-list {\n    width: 100%;\n}\n.thumbnail {\n    float: left;\n    width: 14vw;\n    height: 14vw;\n    margin: 1vw;\n    position: relative;\n    overflow: hidden;\n    border: 1px solid grey;\n}\n.thumbnail img {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    height: 100%;\n    width: auto;\n    -webkit-transform: translate(-50%,-50%);\n        -ms-transform: translate(-50%,-50%);\n            transform: translate(-50%,-50%);\n}\n.thumbnail img.portrait {\n    width: 100%;\n    height: auto;\n}\n\n.thumbnailss {\n    max-width: 40%;\n}\n.lightbox {\n  \tdisplay: none;\n  \tposition: fixed;\n  \tz-index: 999;\n  \twidth: 100%;\n  \theight: 100%;\n  \ttext-align: center;\n  \ttop: 0;\n  \tleft: 0;\n  \tbackground: rgba(0,0,0,0.8);\n}\n\n.lightbox img {\n  \tmax-width: 90%;\n  \tmax-height: 80%;\n  \tmargin-top: 2%;\n}\n\n.lightbox:target {\n  \toutline: none;\n  \tdisplay: block;\n}\n\n.upload {\n    width: 100%;\n    height: 80px;\n    padding-top: 30px;\n    background-color: #3E3E3E;\n    color: #FFFFFF;\n}\n.upload-button {\n    float: right;\n    padding-right: 25px;\n}\n.upload-title{\n    padding: 10px 0;\n}\n.subtitle {\n    padding: 25px 0 0 25px;\n    font-size: 18px;\n    font-family: sans-serif;\n    font-weight: 800;\n}\n", ""]);
 
 // exports
 
