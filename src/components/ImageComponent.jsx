@@ -111,11 +111,11 @@ class ImageComponent extends Component {
                     <form onSubmit={this.handleSubmit.bind(this)} encType="multipart/form-data">
                         <div className = "upload-button">
                             <div className = "upload-title">
-                            <label>Upload image to Imgur</label>
+                                <label>Upload image to Imgur</label>
                             </div>
                             <div>
-                            <input type="file" onChange={this.chooseFile.bind(this)} />
-                            <input type="submit" value="Upload" />
+                                <input type="file" onChange={this.chooseFile.bind(this)} />
+                                <input type="submit" value="Upload" />
                             </div>
                         </div>
                     </form>
