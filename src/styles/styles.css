@@ -2,11 +2,14 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.image-list {
+  width: 100%;
+}
 .thumbnail {
   float: left;
-  width: 200px;
-  height: 200px;
-  margin: 1em;
+  width: 14vw;
+  height: 14vw;
+  margin: 1vw;
   position: relative;
   overflow: hidden;
   border: 1px solid grey;
@@ -53,12 +56,23 @@ html, body {
 	display: block;
 }
 
-.Upload-Button {
+.upload {
   width: 100%;
-  padding-left: 70vw;
-  padding-right: 25px;
   height: 80px;
   padding-top: 30px;
   background-color: #3E3E3E;
   color: #FFFFFF;
+}
+.upload-button {
+  float: right;
+  padding-right: 25px;
+}
+.upload-title{
+  padding: 10px 0;
+}
+.subtitle {
+  padding: 25px 0 0 25px;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 800;
 }

@@ -107,17 +107,23 @@ class ImageComponent extends Component {
     render() {
         return (
             <div>
-                <div className = "Upload-Button">
-                    <label>Upload image to Imgur</label>
+                <div className = "upload">
                     <form onSubmit={this.handleSubmit.bind(this)} encType="multipart/form-data">
-                        <input type="file" onChange={this.chooseFile.bind(this)} />
-                        <input type="submit" value="Upload" />
+                        <div className = "upload-button">
+                            <div className = "upload-title">
+                            <label>Upload image to Imgur</label>
+                            </div>
+                            <div>
+                            <input type="file" onChange={this.chooseFile.bind(this)} />
+                            <input type="submit" value="Upload" />
+                            </div>
+                        </div>
                     </form>
                 </div>
 
-                <span>
+                <div className = "subtitle">
                     Image list from Imgur
-                </span>
+                </div>
                 <div id="image-list">
                 </div>
             </div>
